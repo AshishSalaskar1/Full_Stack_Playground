@@ -24,7 +24,7 @@ const USER_DB = [
 
 ]
 
-let connectionString = "mongodb+srv://ashish:ashish98@ash-mongo-test.17fyupz.mongodb.net/user_app"
+let connectionString = "xxxx"
 
 mongoose
     .connect(connectionString)
