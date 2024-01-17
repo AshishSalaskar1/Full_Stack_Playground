@@ -7,12 +7,12 @@ const processingRouter = express.Router()
 processingRouter.post("/parseHighlights", function (req, res) {
    let content = req.body.content;
    const highlightParse = new HighlightParser(data=content);
+   const parsedContent = highlightParse.getProcessedText();
 
-   let processedText = highlightParse.getProcessedText();
-   console.log(processedText);
+//    console.log(parsedContent);
 
    return res.json({
-    msg: "SUCCESS"
+    parsedContent: parsedContent
    })
 
 })
