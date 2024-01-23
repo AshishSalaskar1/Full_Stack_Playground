@@ -65,6 +65,7 @@ function SingleBookCard({ name, author, count }) {
             </div>
             {/* <!-- BOOK IMAGE --> */}
             <div className="w-3/12">
+                {/* TODO: Fetch images from some web-scraping results */}
                 <img
                     className="w-16 h-16 rounded-full shadow-[0_6px_6px_rgba(0,0,0,0.3)]"
                     src="https://m.media-amazon.com/images/W/MEDIAX_792452-T2/images/I/81lIu0eBO5L._AC_UF1000,1000_QL80_.jpg"

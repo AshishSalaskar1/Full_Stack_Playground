@@ -15,7 +15,7 @@ function HighlightPage() {
     useEffect(function () {
         const bookNameList = Object.groupBy(highlightList, x => x.title);
         setbookList(bookNameList);
-        // console.log("GROUPED LIST",bookNameList);
+        console.log("GROUPED LIST",bookNameList);
     }, [highlightList])
 
     return (

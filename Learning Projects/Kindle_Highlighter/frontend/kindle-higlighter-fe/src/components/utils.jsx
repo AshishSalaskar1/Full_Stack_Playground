@@ -2,6 +2,7 @@
 
 export async function hitParseHighlightsEndpoint(body) {
     try {
+        console.log(body);
         const response = await fetch('http://127.0.0.1:3000/parseHighlights', {
             method: 'POST',
             headers: {
@@ -16,7 +17,7 @@ export async function hitParseHighlightsEndpoint(body) {
 
         // Handle the response data, if needed
         const responseData = await response.json();
-
+        console.log("RESPONSE: ",responseData);
         return responseData;
 
     } catch (error) {

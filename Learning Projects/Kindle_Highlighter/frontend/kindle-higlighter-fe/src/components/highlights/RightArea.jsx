@@ -21,6 +21,7 @@ export function RightArea() {
             // console.log("SET CUR BOOK:", curBook);
             // console.log("SET CUR BOOK LIST:" ,curBook.highlightList);
             // console.log(curBook.highlightList.map(x => console.log("WITHIN: ",x)));
+            console.log("THIS IS GETTING PRINTED: ",curBook);
             setCurBookData(curBook);
         }
 
@@ -44,6 +45,7 @@ export function RightArea() {
                             </div>
                         </div>
                         <div>
+                            {/* TODO: Fetch images from some web-scraping results*/}
                             <img className="w-20 h-20 rounded-full shadow-[0_6px_6px_rgba(0,0,0,0.3)]"
                                 src="https://m.media-amazon.com/images/W/MEDIAX_792452-T2/images/I/81lIu0eBO5L._AC_UF1000,1000_QL80_.jpg" />
                         </div>
@@ -54,7 +56,7 @@ export function RightArea() {
                 <div className="overflow-y-auto h-[60vh]">
                     {/* <!-- SINGLE HIGHLIGHT --> */}
                     {
-                     curBookData ? curBookData.highlightList.map((x, idx) => <SingleHighlight highlightData={x} key={idx}></SingleHighlight>) : ""
+                     curBookData && curBookData.highlightList ? curBookData.highlightList.map((x, idx) => <SingleHighlight highlightData={x} key={idx}></SingleHighlight>) : ""
                     }
 
                 </div>

@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { hitParseHighlightsEndpoint } from "./utils";
 import { useRecoilState } from "recoil";
 import { highlightListState } from "../store/atoms/HighlightsAtom"
@@ -8,6 +8,15 @@ export function FileInput() {
     const fileInputRef = useRef(null);
     const [highlightList, setHighlightList] = useRecoilState(highlightListState)
     const navigate = useNavigate();
+
+    useEffect(()=>{
+        console.log(`Set highlightList to atom`);
+        console.log(highlightList);
+
+        if(highlightList.length > 0){
+            navigate("/highlights");
+        }
+    },[highlightList])
 
     const submitBtnClicked = () => {
         const file = fileInputRef.current.files[0];
@@ -20,15 +29,13 @@ export function FileInput() {
                     content: content
                 };
                 let parsedContent = await hitParseHighlightsEndpoint(inputData);
-                console.log(parsedContent);
+                console.log("Parsed content from API  CAll:" ,parsedContent);
                 setHighlightList(parsedContent.parsedContent);
-
             };
 
 
             reader.readAsText(file);
-            console.log(`Set highlightList to atom: ${highlightList}`)
-            navigate("/highlights");
+            ;
         } catch (err) {
             console.log(err);
         }
